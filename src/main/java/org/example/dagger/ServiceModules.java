@@ -4,6 +4,7 @@ package org.example.dagger;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dagger.Module;
 import dagger.Provides;
+import org.example.orchestrator.VideoIngestionOrchestrator;
 
 import javax.inject.Singleton;
 
@@ -13,5 +14,11 @@ public class ServiceModules {
     @Singleton
     public ObjectMapper provideObjectMapper() {
         return new ObjectMapper();
+    }
+
+    @Provides
+    @Singleton
+    public VideoIngestionOrchestrator provideVideoIngestionOrchestrator() {
+        return new VideoIngestionOrchestrator();
     }
 }
